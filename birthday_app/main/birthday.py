@@ -1,33 +1,34 @@
 import sys
 sys.path.append('')
 
-from datetime import date
+import datetime
 from birthday_app.errors import unsupported_kwarg
+from birthday_app.main.celebration import Celebration
+import string
+import random
 
 class birthday(object):
-        def __init__(self, birthday=None, **kwargs):
-                if type(birthday) is date:
-                        self._set_birthday(birthday)
-                if not birthday:
-                        self._set_birthday(date.today())
-                else:
-                        raise TypeError('birthday must be of type datetime.date')
-                
-                accepted_kwargs = ['first_name', 'last_name', 'other_names']
-                
-                for attr in kwargs:
-                        if attr in accepted_kwargs:
-                                self.__setattr__(attr, kwargs[attr])
-                        else:
-                                raise unsupported_kwarg.Error(self, attr)
-                
-                for arg in accepted_kwargs:
-                        try:
-                                self.__getattribute__(arg)
-                        except AttributeError:
-                                self.__setattr__(arg, None)
-                
-        def _set_birthday(self, birthday):
-                self.birth_date = birthday.day
-                self.birth_month = birthday.month
-                self.birth_year = birthday.year
+    def __init__(self, birthdate=None, 
+                  first_name=None, 
+                  last_name=None, 
+                  other_names=None, 
+                  id=None):
+        if type(birthdate) is datetime.date:
+            self.birthday = birthdate
+        elif not birthdate:
+            self.birthday = datetime.date.today()
+        else:
+            raise TypeError('birthday arg must be of the type date or equal None.')
+        
+        self.first_name = first_name
+        self.last_name = last_name
+        
+        if type(other_names) is list or other_names == None:
+            self.other_names = other_names
+        else:
+            raise TypeError()
+        
+        self.celebrated = []
+    
+    def add_celetration(self, date):
+        self.celebrated = Celebration(date)

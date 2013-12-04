@@ -13,6 +13,7 @@ class birthday(object):
                   last_name=None, 
                   other_names=None, 
                   id=None):
+        
         if type(birthdate) is datetime.date:
             self.birthday = birthdate
         elif not birthdate:
@@ -23,11 +24,14 @@ class birthday(object):
         self.first_name = first_name
         self.last_name = last_name
         
-        if type(other_names) is list or other_names == None:
+        if type(other_names) is list:
             self.other_names = other_names
+        elif other_names is None:
+            self.other_names = []
         else:
             raise TypeError()
         
+        self.id = id
         self.celebrated = []
     
     def add_celetration(self, date):

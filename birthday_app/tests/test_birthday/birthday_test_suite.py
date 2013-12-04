@@ -4,10 +4,14 @@ sys.path.append('')
 import unittest
 from birthday_app.tests.test_birthday.test_first_name import test_name_attr
 from birthday_app.tests.test_birthday.test_last_name import test_last_name
+from birthday_app.tests.test_birthday import test_birthday_attr
+from birthday_app.tests.test_birthday import test_other_names
 
 ALL_TESTS=[
     test_name_attr,
-    test_last_name
+    test_last_name,
+    test_birthday_attr.TestBirthdayAttr,
+    test_other_names.TestOtherNames
     ]
 
 def suite():

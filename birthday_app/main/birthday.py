@@ -7,7 +7,7 @@ from birthday_app.main.celebration import Celebration
 import string
 import random
 
-class birthday(object):
+class Birthday(object):
     def __init__(self, birthdate=None, 
                   first_name=None, 
                   last_name=None, 
@@ -32,7 +32,7 @@ class birthday(object):
             raise TypeError()
         
         self.id = id
-        self.celebrated = []
+        self.celebrations = []
     
-    def add_celetration(self, date):
+    def add_celetrations(self, date):
         self.celebrated = Celebration(date)

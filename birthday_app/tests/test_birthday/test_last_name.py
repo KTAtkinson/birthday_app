@@ -6,12 +6,12 @@ import unittest
 
 class test_last_name(unittest.TestCase):
     def test_default(self):
-        birthday_ = birthday.birthday()
+        birthday_ = birthday.Birthday()
         self.assertEqual(birthday_.last_name, None)
     
     def test_kwarg(self):
         last_name = 'Smith'
-        birthday_ = birthday.birthday(last_name=last_name)
+        birthday_ = birthday.Birthday(last_name=last_name)
         self.assertEqual(birthday_.last_name, last_name)
 
 if __name__ == '__main__':

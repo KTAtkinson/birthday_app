@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Run script before committing, it will install hooks.
+
+hooks_location=./birthday_app/hooks
+py_location=./birthday_app/python
+hooks_dest=./.git/hooks
+
+for file in $hooks_location/*
+do
+echo $file
+cp $file $hooks_dest
+done
+
+mkdir $hooks_dest/python
+for file in $py_location/*
+do
+cp $file $hooks_dest/python
+done

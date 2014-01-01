@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+""" Pre-commit script for git"""
 
 import subprocess
 from python import id_python
@@ -35,8 +35,9 @@ def main():
 		try:
 			file.split('/')[-1].decode('ascii')
 		except UnicodeDecoderError:
+		  warning = "Warning: You have a non-ascii character in your file name."
 			errors = (
-					"{0} \033Warning: You have a non-ascii character in your file name.".format(errors)
+					"{0}\n{1}".format(errors, warning)
 					)
 			print "Errors"
 		else:

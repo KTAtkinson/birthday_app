@@ -1,0 +1,5 @@
+""
+def nothing():
+    nothing
+haha
+    

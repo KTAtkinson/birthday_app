@@ -1,5 +1,1 @@
 ""
-def nothing():
-    nothing
-haha
-    
